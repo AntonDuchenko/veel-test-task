@@ -19,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <QueryClientProvider client={queryClient}>
-        <body className={`${manrope.className} px-3 py-5 h-screen lg:flex lg:items-center lg:justify-center `}>
+        <body
+          className={`${manrope.className} h-screen lg:flex lg:items-center lg:justify-center bg-neutral-backgroud`}
+        >
           {children}
         </body>
       </QueryClientProvider>

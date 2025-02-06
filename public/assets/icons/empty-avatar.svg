@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="50" cy="50" r="48" />
+    </clipPath>
+  </defs>
+
+  <circle cx="50" cy="50" r="48" fill="#e0e0e0" />
+
+  <g clip-path="url(#circleClip)">
+    <path d="M50 63 C20 63 15 85 15 120 L85 120 C85 85 80 63 50 63" fill="#bdbdbd" />
+
+    <circle cx="50" cy="40" r="20" fill="#bdbdbd" />
+  </g>
+</svg>

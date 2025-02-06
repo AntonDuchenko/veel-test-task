@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { createElement } from "react";
 
 interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  type: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+  type: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
   title: string;
 }
 
@@ -27,8 +27,11 @@ export const Title: React.FC<TitleProps> = ({ type, title, className }) => {
     "3xl": "text-[42px] font-bold",
   } as const;
 
-  return createElement(mapTagBySize[type], {
-    className: classNames(mapClassNameBySize[type], className),
-    children: title,
-  });
+  return createElement(
+    mapTagBySize[type],
+    {
+      className: classNames(mapClassNameBySize[type], className),
+    },
+    title
+  );
 };

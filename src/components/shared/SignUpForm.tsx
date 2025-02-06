@@ -28,7 +28,7 @@ export const SignUpForm = () => {
 
   const router = useRouter();
 
-  const { mutate, data, error } = useMutation({
+  const { mutate } = useMutation({
     mutationKey: ["signUp"],
     mutationFn: (data: IUser) => signUp(data),
   });
