@@ -3,6 +3,8 @@
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -18,13 +20,14 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <QueryClientProvider client={queryClient}>
-        <body
-          className={`${manrope.className} h-screen lg:flex lg:items-center lg:justify-center bg-neutral-backgroud`}
-        >
+      <body
+        className={`${manrope.className} h-screen lg:flex lg:items-center lg:justify-center bg-neutral-backgroud`}
+      >
+        <QueryClientProvider client={queryClient}>
           {children}
-        </body>
-      </QueryClientProvider>
+          <ToastContainer newestOnTop />
+        </QueryClientProvider>
+      </body>
     </html>
   );
 }

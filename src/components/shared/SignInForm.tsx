@@ -22,7 +22,9 @@ import { useMutation } from "@tanstack/react-query";
 import { signIn } from "@/lib/api/auth";
 import { useRouter } from "next/navigation";
 import { IUser } from "@/types";
-import { getUser } from '@/lib/api/user';
+import { getUser } from "@/lib/api/user";
+import { toastSuccess } from "@/lib/toastSuccess";
+import { toastError } from "@/lib/toastError";
 
 export const SignInForm = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
@@ -62,9 +64,10 @@ export const SignInForm = () => {
       onSuccess: () => {
         form.reset();
         router.push("/profile");
+        toastSuccess("Sign in success");
       },
       onError: (error) => {
-        console.error("Sign in failed:", error);
+        toastError(error.message);
       },
     });
   };
@@ -146,9 +149,7 @@ export const SignInForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">
-          Sign in
-        </Button>
+        <Button type="submit">Sign in</Button>
       </form>
       <span className="text-lg font-normal">
         Don’t have account?{" "}

@@ -22,6 +22,8 @@ import { useMutation } from "@tanstack/react-query";
 import { signUp } from "@/lib/api/auth";
 import { IUser } from "@/types";
 import { useRouter } from "next/navigation";
+import { toastSuccess } from "@/lib/toastSuccess";
+import { toastError } from "@/lib/toastError";
 
 export const SignUpForm = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
@@ -61,6 +63,10 @@ export const SignUpForm = () => {
       onSuccess: () => {
         form.reset();
         router.push("/sign-in");
+        toastSuccess("Sign up success");
+      },
+      onError: (error) => {
+        toastError(error.message);
       },
     });
   };
